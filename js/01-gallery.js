@@ -1,4 +1,3 @@
-// 01-gallery.js
 import { galleryItems } from './gallery-items.js';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
