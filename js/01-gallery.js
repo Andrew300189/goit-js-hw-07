@@ -35,7 +35,7 @@ let currentLightbox;
 gallery.addEventListener('click', (event) => {
   event.preventDefault();
 
-  if (event.target.classList.contains('gallery__image')) {
+  if (event.target.nodeName === 'IMG') {
     const imageUrl = event.target.dataset.source;
 
     // Закрываем предыдущий экземпляр модального окна перед созданием нового
@@ -53,6 +53,7 @@ gallery.addEventListener('click', (event) => {
       },
       onClose: (instance) => {
         document.removeEventListener('keydown', handleKeyPress);
+        currentLightbox = null; // Очищаем переменную, чтобы избежать утечки памяти
       },
     });
 
