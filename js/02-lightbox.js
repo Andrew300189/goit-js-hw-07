@@ -16,14 +16,11 @@ function createGalleryItem(item) {
 
 const gallery = document.querySelector('.gallery');
 
-galleryItems.forEach((item) => {
-  const galleryItemElement = document.createElement('li');
-  galleryItemElement.innerHTML = createGalleryItem(item);
-  gallery.appendChild(galleryItemElement);
-});
+const galleryItemsHTML = galleryItems.map((item) => createGalleryItem(item)).join('');
+gallery.insertAdjacentHTML('beforeend', galleryItemsHTML);
 
 const lightbox = new SimpleLightbox('.gallery__item a', {
   captionsData: 'alt',
   captionPosition: 'bottom',
-  captionDelay: 250, // Затримка відображення підпису
+  captionDelay: 250,
 });
